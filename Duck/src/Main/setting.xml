@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:p="http://www.springframework.org/schema/p"
+   xmlns:context="http://www.springframework.org/schema/context"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	 <!-- FlyBehavior 빈 설정 -->
+    <bean id="flywithWings" class="duckFly.FlywithWings" />
+    <bean id="flyNoWay" class="duckFly.FlyNoWay" />
+
+    <!-- QuackBehavior 빈 설정 -->
+    <bean id="quack" class="duckQuack.Quack" />
+    <bean id="squeak" class="duckQuack.Squeak" />
+    <bean id="muteQuack" class="duckQuack.MuteQuack" />
+    
+    
+	<bean id="duck" class="duck.DecoyDuck">
+        <property name="flyBehavior" ref="flywithWings" />
+        <property name="quackBehavior" ref="muteQuack" />
+    </bean>
+
+    
+    
+</beans>
